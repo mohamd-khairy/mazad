@@ -246,7 +246,7 @@ return [
 
         ['header' => 'main_section'],
 
-       
+
         [
             'text'    => 'user_section',
             'icon'    => 'fas fa-fw fa-share',
@@ -261,7 +261,32 @@ return [
                 ],
             ],
         ], //user
-      
+        [
+            'text' => 'categories',
+            'icon'    => 'fas fa-fw fa-share',
+            'url'  => 'category',
+        ],
+        [
+            'text' => 'mazads',
+            'icon'    => 'fas fa-fw fa-share',
+            'url'  => 'mazad',
+        ],
+        [
+            'text' => 'comments',
+            'icon'    => 'fas fa-fw fa-share',
+            'url'  => 'comment',
+        ],
+        [
+            'text' => 'asks',
+            'icon'    => 'fas fa-fw fa-share',
+            'url'  => 'ask',
+        ],
+        [
+            'text' => 'answers',
+            'icon'    => 'fas fa-fw fa-share',
+            'url'  => 'answer',
+        ],
+
         /******************************************************************************************************** */
         // ['header' => 'main'],
         // [

@@ -57,9 +57,9 @@ class UserController extends Controller
         }
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
-            if ($user->email_verified_at == null) {
-                return responseFail('Please Verify Your Email');
-            }
+            // if ($user->email_verified_at == null) {
+            //     return responseFail('Please Verify Your Email');
+            // }
             $data = new \stdClass();
             $data->user = new UserResource($user);
             $data->token = $user->createToken('MyApp')->accessToken;
@@ -144,8 +144,6 @@ class UserController extends Controller
         $validateData = Validator::make($data, [
             'name' => 'nullable|min:3',
             'phone' => 'nullable|unique:users,phone,' . $user->id,
-            'weight' => 'nullable|numeric',
-            'height' => 'nullable|numeric',
             'birth_date' => 'nullable|date|before:today',
             'gender' => 'nullable|in:male,female',
         ]);

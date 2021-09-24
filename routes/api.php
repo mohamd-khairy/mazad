@@ -22,12 +22,15 @@ Route::post('login', [\App\Http\Controllers\Api\UserController::class, 'login'])
 Route::post('forget-password', [\App\Http\Controllers\Api\UserController::class, 'forget_password']);
 Route::post('new-password', [\App\Http\Controllers\Api\UserController::class, 'new_password']);
 Route::get('get-public-data', [\App\Http\Controllers\Api\ApiHomeController::class, 'get_public_data']);
-Route::get('get-targets', [\App\Http\Controllers\Api\ApiHomeController::class, 'get_targets']);
-Route::get('get-diets', [\App\Http\Controllers\Api\ApiHomeController::class, 'get_diets']);
-Route::get('get-foods', [\App\Http\Controllers\Api\ApiHomeController::class, 'get_foods']);
-Route::get('get-address-create-data', [\App\Http\Controllers\Api\ApiHomeController::class, 'get_address_create_data']);
+Route::get('get-mazads', [\App\Http\Controllers\Api\ApiHomeController::class, 'get_mazads']);
+Route::get('get-categories', [\App\Http\Controllers\Api\ApiHomeController::class, 'get_categories']);
 
 Route::group(['middleware' => ['auth:api']], function () {
+
+    Route::post('add-mazad', [\App\Http\Controllers\Api\ApiHomeController::class, 'add_mazad']);
+    Route::post('add-comment', [\App\Http\Controllers\Api\ApiHomeController::class, 'add_comment']);
+    Route::post('add-ask', [\App\Http\Controllers\Api\ApiHomeController::class, 'add_ask']);
+    Route::post('add-answer', [\App\Http\Controllers\Api\ApiHomeController::class, 'add_answer']);
 
     Route::get('user', function (Request $request) {
         return responseSuccess(new UserResource($request->user()));

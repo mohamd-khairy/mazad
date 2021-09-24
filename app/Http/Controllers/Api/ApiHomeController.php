@@ -3,20 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\DayNumberResource;
-use App\Http\Resources\DietResource;
-use App\Http\Resources\FoodResource;
-use App\Http\Resources\MainTypeResource;
-use App\Http\Resources\StateResource;
-use App\Http\Resources\TargetResource;
+use App\Http\Resources\GeneralResource;
+use App\Http\Resources\MazadResource;
 use App\Http\Traits\HelperTrait;
-use App\Models\DayNumber;
-use App\Models\Diet;
-use App\Models\Food;
-use App\Models\MealType;
-use App\Models\PreferedTime;
-use App\Models\State;
-use App\Models\Target;
+use App\Models\Answer;
+use App\Models\Ask;
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\Mazad;
 use Illuminate\Http\Request;
 
 class ApiHomeController extends Controller
@@ -26,60 +20,62 @@ class ApiHomeController extends Controller
     public function get_public_data()
     {
         $data = [];
-        $data['target'] = TargetResource::collection($this->get(Target::class, ['diets']));
-        $data['daynumbers'] = DayNumberResource::collection($this->get(DayNumber::class));
-        $data['main_types'] = MainTypeResource::collection($this->getBy(MealType::class, ['parent' => 1], ['meal_types']));
-        $data['preferedtimes'] = $this->get(PreferedTime::class);
+        $data['mazads'] = $this->get(Mazad::class);
 
         return responseSuccess($data);
     }
 
-    public function get_address_create_data()
+    public function get_mazads()
     {
-        $data = [];
-        $data['states'] = StateResource::collection($this->get(State::class));
-        return responseSuccess($data);
-    }
-
-    public function get_diets()
-    {
-        if (request('diet_id')) {
-            $data = new DietResource($this->findWith(Diet::class, ['id' => request('diet_id')], ['days', 'mealNumbers']));
+        if (request('mazad_id')) {
+            $data = new MazadResource($this->findWith(Mazad::class, ['id' => request('mazad_id')], ['user', 'category']));
             if (!$data) {
-                return responseFail('there is no diet with this id');
+                return responseFail('there is no mazad with this id');
             }
         } else {
-            $data = DietResource::collection($this->get(Diet::class, ['days', 'mealNumbers']));
+            $data = MazadResource::collection($this->get(Mazad::class, ['user', 'category']));
         }
         return responseSuccess($data);
     }
 
-    public function get_targets()
+    public function get_categories()
     {
-
-        if (request('target_id')) {
-            $data = new TargetResource($this->findWith(Target::class, ['id' => request('target_id')], ['diets']));
+        if (request('category_id')) {
+            $data = new GeneralResource($this->findWith(Category::class, ['id' => request('category_id')], ['mazads']));
             if (!$data) {
-                return responseFail('there is no target with this id');
+                return responseFail('there is no category with this id');
             }
         } else {
-            $data = TargetResource::collection($this->get(Target::class, ['diets']));
+            $data = GeneralResource::collection($this->get(Category::class, ['mazads']));
         }
         return responseSuccess($data);
     }
 
-    public function get_foods()
+    public function add_mazad(Request $request)
     {
-        if (request('food_id')) {
-            $data = new FoodResource($this->findWith(Food::class, ['id' => request('food_id')], ['mealtypes', 'foodtypes_many']));
-            if (!$data) {
-                return responseFail('there is no diet with this id');
-            }
-        } else {
-            $data = FoodResource::collection($this->get(Food::class, ['mealtypes', 'foodtypes_many']));
-        }
+        $data = $this->add(Mazad::class, $request->all() + ['user_id' => auth('api')->user()->id]);
+
         return responseSuccess($data);
     }
 
-    
+    public function add_comment(Request $request)
+    {
+        $data = $this->add(Comment::class, $request->all() + ['user_id' => auth('api')->user()->id]);
+
+        return responseSuccess($data);
+    }
+
+    public function add_ask(Request $request)
+    {
+        $data = $this->add(Ask::class, $request->all() + ['user_id' => auth('api')->user()->id]);
+
+        return responseSuccess($data);
+    }
+
+    public function add_answer(Request $request)
+    {
+        $data = $this->add(Answer::class, $request->all() + ['user_id' => auth('api')->user()->id]);
+
+        return responseSuccess($data);
+    }
 }
