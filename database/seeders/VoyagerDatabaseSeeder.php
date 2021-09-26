@@ -273,16 +273,16 @@ class VoyagerDatabaseSeeder extends Seeder
             array('user_id' => NULL, 'name' => 'Laravel Password Grant Client', 'secret' => 'tVPXZr5JYJlPvqogEIF8hyWcidBJXEgIZ67UZZU5', 'provider' => 'users', 'redirect' => 'http://localhost', 'personal_access_client' => '0', 'password_client' => '1', 'revoked' => '0', 'created_at' => '2021-09-26 10:41:41', 'updated_at' => '2021-09-26 10:41:41')
         );
 
-        DB::table('oauth_clients')->truncate();
-        DB::table('oauth_clients')->insert($oauth_clients);
+        // DB::table('oauth_clients')->truncate();
+        // DB::table('oauth_clients')->insert($oauth_clients);
 
         /* `mazad`.`oauth_personal_access_clients` */
         $oauth_personal_access_clients = array(
             array('client_id' => '1', 'created_at' => '2021-09-26 10:41:41', 'updated_at' => '2021-09-26 10:41:41')
         );
 
-        DB::table('oauth_personal_access_clients')->truncate();
-        DB::table('oauth_personal_access_clients')->insert($oauth_personal_access_clients);
+        // DB::table('oauth_personal_access_clients')->truncate();
+        // DB::table('oauth_personal_access_clients')->insert($oauth_personal_access_clients);
 
         /* `mazad`.`oauth_refresh_tokens` */
         $oauth_refresh_tokens = array();
@@ -367,6 +367,15 @@ class VoyagerDatabaseSeeder extends Seeder
         DB::table('permissions')->truncate();
         DB::table('permissions')->insert($permissions);
 
+        /* `mazad`.`roles` */
+        $roles = array(
+            array('name' => 'admin', 'display_name' => 'Administrator', 'created_at' => '2021-09-26 10:36:32', 'updated_at' => '2021-09-26 10:36:32'),
+            array('name' => 'user', 'display_name' => 'Normal User', 'created_at' => '2021-09-26 10:36:32', 'updated_at' => '2021-09-26 10:36:32')
+        );
+
+        // DB::table('roles')->truncate();
+        // DB::table('roles')->insert($roles);
+
         /* `mazad`.`permission_role` */
         $permission_role = array(
             array('permission_id' => '1', 'role_id' => '1'),
@@ -444,15 +453,6 @@ class VoyagerDatabaseSeeder extends Seeder
         DB::table('permission_role')->truncate();
         DB::table('permission_role')->insert($permission_role);
 
-        /* `mazad`.`roles` */
-        $roles = array(
-            array('name' => 'admin', 'display_name' => 'Administrator', 'created_at' => '2021-09-26 10:36:32', 'updated_at' => '2021-09-26 10:36:32'),
-            array('name' => 'user', 'display_name' => 'Normal User', 'created_at' => '2021-09-26 10:36:32', 'updated_at' => '2021-09-26 10:36:32')
-        );
-
-        DB::table('roles')->truncate();
-        DB::table('roles')->insert($roles);
-
         /* `mazad`.`settings` */
         $settings = array(
             array('key' => 'site.title', 'display_name' => 'Site Title', 'value' => 'Site Title', 'details' => '', 'type' => 'text', 'order' => '1', 'group' => 'Site'),
@@ -467,8 +467,8 @@ class VoyagerDatabaseSeeder extends Seeder
             array('key' => 'admin.google_analytics_client_id', 'display_name' => 'Google Analytics Client ID (used for admin dashboard)', 'value' => '', 'details' => '', 'type' => 'text', 'order' => '1', 'group' => 'Admin')
         );
 
-        DB::table('settings')->truncate();
-        DB::table('settings')->insert($settings);
+        // DB::table('settings')->truncate();
+        // DB::table('settings')->insert($settings);
 
         /* `mazad`.`translations` */
         $translations = array();
@@ -478,8 +478,8 @@ class VoyagerDatabaseSeeder extends Seeder
             array('role_id' => '1', 'name' => 'Admin', 'email' => 'admin@admin.com', 'avatar' => 'users/default.png', 'email_verified_at' => '2021-09-26 13:59:53', 'password' => '$2y$10$.oQYH1YIq4cmGoINdq8Tq.J2utwblFdSqZdWv0rOkxIdJ8QYCdY6y', 'phone' => NULL, 'type' => 'admin', 'gender' => NULL, 'birth_date' => NULL, 'code' => NULL, 'remember_token' => NULL, 'settings' => NULL, 'created_at' => '2021-09-26 10:37:45', 'updated_at' => '2021-09-26 10:37:45'),
         );
 
-        DB::table('users')->truncate();
-        DB::table('users')->insert($users);
+        // DB::table('users')->truncate();
+        // DB::table('users')->insert($users);
 
         /* `mazad`.`user_roles` */
         $user_roles = array();
