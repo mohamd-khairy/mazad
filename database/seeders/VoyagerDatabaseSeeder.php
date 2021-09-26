@@ -489,8 +489,8 @@ class VoyagerDatabaseSeeder extends Seeder
             array('id' => '1', 'name' => 'admin', 'user_id' => '1', 'locale' => 'en')
         );
 
-        DB::table('user_translations')->truncate();
-        DB::table('user_translations')->insert($user_translations);
+        // DB::table('user_translations')->truncate();
+        // DB::table('user_translations')->insert($user_translations);
 
         /* `mazad`.`winners` */
         $winners = array();
