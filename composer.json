@@ -9,11 +9,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "gd": "*",
         "ext-gd": "*",
         "astrotomic/laravel-translatable": "^11.9",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "intervention/image": "^2.6",
         "jeroennoten/laravel-adminlte": "^3.6",
         "laravel/framework": "^8.40",
         "laravel/passport": "^10.1",
@@ -57,8 +59,10 @@
         ],
         "compile": [
             "php artisan clear-compiled",
-            "chmod -R 777 public",
-            "chmod -R 777 storage",
+            "chmod -R 777 public/",
+            "chmod -R 777 storage/",
+            "chmod -R 777 ./public",
+            "chmod -R 777 ./storage",
             "php artisan passport:install",
             "php artisan passport:keys",
             "php artisan storage:link"
