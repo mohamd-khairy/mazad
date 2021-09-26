@@ -60,8 +60,6 @@
             "php artisan clear-compiled",
             "chmod -R 777 public/",
             "chmod -R 777 storage/",
-            "chmod -R 777 ./public",
-            "chmod -R 777 ./storage",
             "php artisan passport:install",
             "php artisan passport:keys",
             "php artisan storage:link"
