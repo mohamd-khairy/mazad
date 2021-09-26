@@ -45,6 +45,26 @@ class VoyagerDatabaseSeeder extends Seeder
         /* `mazad`.`comments` */
         $comments = array();
 
+        /* `mazad`.`data_types` */
+        $data_types = array(
+            array('id' => '1', 'name' => 'users', 'slug' => 'users', 'display_name_singular' => 'User', 'display_name_plural' => 'Users', 'icon' => 'voyager-person', 'model_name' => 'TCG\\Voyager\\Models\\User', 'policy_name' => 'TCG\\Voyager\\Policies\\UserPolicy', 'controller' => 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '0', 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"desc","default_search_key":null,"scope":null}', 'created_at' => '2021-09-26 10:36:32', 'updated_at' => '2021-09-26 11:54:44'),
+            array('id' => '2', 'name' => 'menus', 'slug' => 'menus', 'display_name_singular' => 'Menu', 'display_name_plural' => 'Menus', 'icon' => 'voyager-list', 'model_name' => 'TCG\\Voyager\\Models\\Menu', 'policy_name' => NULL, 'controller' => '', 'description' => '', 'generate_permissions' => '1', 'server_side' => '0', 'details' => NULL, 'created_at' => '2021-09-26 10:36:32', 'updated_at' => '2021-09-26 10:36:32'),
+            array('id' => '3', 'name' => 'roles', 'slug' => 'roles', 'display_name_singular' => 'Role', 'display_name_plural' => 'Roles', 'icon' => 'voyager-lock', 'model_name' => 'TCG\\Voyager\\Models\\Role', 'policy_name' => NULL, 'controller' => 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', 'description' => '', 'generate_permissions' => '1', 'server_side' => '0', 'details' => NULL, 'created_at' => '2021-09-26 10:36:32', 'updated_at' => '2021-09-26 10:36:32'),
+            array('id' => '4', 'name' => 'addresses', 'slug' => 'addresses', 'display_name_singular' => 'Address', 'display_name_plural' => 'Addresses', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Address', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"id"}', 'created_at' => '2021-09-26 10:41:20', 'updated_at' => '2021-09-26 10:41:20'),
+            array('id' => '5', 'name' => 'address_translations', 'slug' => 'address-translations', 'display_name_singular' => 'Address Translation', 'display_name_plural' => 'Address Translations', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\AddressTranslation', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"full_address","scope":null}', 'created_at' => '2021-09-26 10:43:12', 'updated_at' => '2021-09-26 10:43:51'),
+            array('id' => '6', 'name' => 'mazads', 'slug' => 'mazads', 'display_name_singular' => 'Mazad', 'display_name_plural' => 'Mazads', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Mazad', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"name","scope":null}', 'created_at' => '2021-09-26 10:45:53', 'updated_at' => '2021-09-26 11:58:02'),
+            array('id' => '7', 'name' => 'comments', 'slug' => 'comments', 'display_name_singular' => 'Comment', 'display_name_plural' => 'Comments', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Comment', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"price","scope":null}', 'created_at' => '2021-09-26 11:33:08', 'updated_at' => '2021-09-26 11:56:44'),
+            array('id' => '8', 'name' => 'asks', 'slug' => 'asks', 'display_name_singular' => 'Ask', 'display_name_plural' => 'Asks', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Ask', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"text","scope":null}', 'created_at' => '2021-09-26 11:34:34', 'updated_at' => '2021-09-26 11:56:02'),
+            array('id' => '9', 'name' => 'answers', 'slug' => 'answers', 'display_name_singular' => 'Answer', 'display_name_plural' => 'Answers', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Answer', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"text","scope":null}', 'created_at' => '2021-09-26 11:36:00', 'updated_at' => '2021-09-26 11:55:53'),
+            array('id' => '10', 'name' => 'categories', 'slug' => 'categories', 'display_name_singular' => 'Category', 'display_name_plural' => 'Categories', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Category', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"name","scope":null}', 'created_at' => '2021-09-26 11:37:28', 'updated_at' => '2021-09-26 12:13:18'),
+            array('id' => '11', 'name' => 'images', 'slug' => 'images', 'display_name_singular' => 'Image', 'display_name_plural' => 'Images', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Image', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"model","scope":null}', 'created_at' => '2021-09-26 11:38:10', 'updated_at' => '2021-09-26 11:38:49'),
+            array('id' => '12', 'name' => 'winners', 'slug' => 'winners', 'display_name_singular' => 'Winner', 'display_name_plural' => 'Winners', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Winner', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"user_id","scope":null}', 'created_at' => '2021-09-26 11:39:33', 'updated_at' => '2021-09-26 11:58:23')
+        );
+
+        DB::table('data_types')->truncate();
+        DB::table('data_types')->insert($data_types);
+
+
         /* `mazad`.`data_rows` */
         $data_rows = array(
             array('id' => '1', 'data_type_id' => '1', 'field' => 'id', 'type' => 'number', 'display_name' => 'ID', 'required' => '1', 'browse' => '1', 'read' => '0', 'edit' => '0', 'add' => '0', 'delete' => '0', 'details' => '{}', 'order' => '1'),
@@ -150,28 +170,9 @@ class VoyagerDatabaseSeeder extends Seeder
             array('id' => '108', 'data_type_id' => '1', 'field' => 'code', 'type' => 'text', 'display_name' => 'Code', 'required' => '0', 'browse' => '0', 'read' => '1', 'edit' => '1', 'add' => '1', 'delete' => '1', 'details' => '{}', 'order' => '18'),
             array('id' => '109', 'data_type_id' => '10', 'field' => 'image', 'type' => 'image', 'display_name' => 'Image', 'required' => '0', 'browse' => '1', 'read' => '1', 'edit' => '1', 'add' => '1', 'delete' => '1', 'details' => '{"validation":{"rule":"required"}}', 'order' => '3')
         );
-        
+
         DB::table('data_rows')->truncate();
         DB::table('data_rows')->insert($data_rows);
-
-        /* `mazad`.`data_types` */
-        $data_types = array(
-            array('id' => '1', 'name' => 'users', 'slug' => 'users', 'display_name_singular' => 'User', 'display_name_plural' => 'Users', 'icon' => 'voyager-person', 'model_name' => 'TCG\\Voyager\\Models\\User', 'policy_name' => 'TCG\\Voyager\\Policies\\UserPolicy', 'controller' => 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '0', 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"desc","default_search_key":null,"scope":null}', 'created_at' => '2021-09-26 10:36:32', 'updated_at' => '2021-09-26 11:54:44'),
-            array('id' => '2', 'name' => 'menus', 'slug' => 'menus', 'display_name_singular' => 'Menu', 'display_name_plural' => 'Menus', 'icon' => 'voyager-list', 'model_name' => 'TCG\\Voyager\\Models\\Menu', 'policy_name' => NULL, 'controller' => '', 'description' => '', 'generate_permissions' => '1', 'server_side' => '0', 'details' => NULL, 'created_at' => '2021-09-26 10:36:32', 'updated_at' => '2021-09-26 10:36:32'),
-            array('id' => '3', 'name' => 'roles', 'slug' => 'roles', 'display_name_singular' => 'Role', 'display_name_plural' => 'Roles', 'icon' => 'voyager-lock', 'model_name' => 'TCG\\Voyager\\Models\\Role', 'policy_name' => NULL, 'controller' => 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', 'description' => '', 'generate_permissions' => '1', 'server_side' => '0', 'details' => NULL, 'created_at' => '2021-09-26 10:36:32', 'updated_at' => '2021-09-26 10:36:32'),
-            array('id' => '4', 'name' => 'addresses', 'slug' => 'addresses', 'display_name_singular' => 'Address', 'display_name_plural' => 'Addresses', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Address', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"id"}', 'created_at' => '2021-09-26 10:41:20', 'updated_at' => '2021-09-26 10:41:20'),
-            array('id' => '5', 'name' => 'address_translations', 'slug' => 'address-translations', 'display_name_singular' => 'Address Translation', 'display_name_plural' => 'Address Translations', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\AddressTranslation', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"full_address","scope":null}', 'created_at' => '2021-09-26 10:43:12', 'updated_at' => '2021-09-26 10:43:51'),
-            array('id' => '6', 'name' => 'mazads', 'slug' => 'mazads', 'display_name_singular' => 'Mazad', 'display_name_plural' => 'Mazads', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Mazad', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"name","scope":null}', 'created_at' => '2021-09-26 10:45:53', 'updated_at' => '2021-09-26 11:58:02'),
-            array('id' => '7', 'name' => 'comments', 'slug' => 'comments', 'display_name_singular' => 'Comment', 'display_name_plural' => 'Comments', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Comment', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"price","scope":null}', 'created_at' => '2021-09-26 11:33:08', 'updated_at' => '2021-09-26 11:56:44'),
-            array('id' => '8', 'name' => 'asks', 'slug' => 'asks', 'display_name_singular' => 'Ask', 'display_name_plural' => 'Asks', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Ask', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"text","scope":null}', 'created_at' => '2021-09-26 11:34:34', 'updated_at' => '2021-09-26 11:56:02'),
-            array('id' => '9', 'name' => 'answers', 'slug' => 'answers', 'display_name_singular' => 'Answer', 'display_name_plural' => 'Answers', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Answer', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"text","scope":null}', 'created_at' => '2021-09-26 11:36:00', 'updated_at' => '2021-09-26 11:55:53'),
-            array('id' => '10', 'name' => 'categories', 'slug' => 'categories', 'display_name_singular' => 'Category', 'display_name_plural' => 'Categories', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Category', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"name","scope":null}', 'created_at' => '2021-09-26 11:37:28', 'updated_at' => '2021-09-26 12:13:18'),
-            array('id' => '11', 'name' => 'images', 'slug' => 'images', 'display_name_singular' => 'Image', 'display_name_plural' => 'Images', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Image', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"model","scope":null}', 'created_at' => '2021-09-26 11:38:10', 'updated_at' => '2021-09-26 11:38:49'),
-            array('id' => '12', 'name' => 'winners', 'slug' => 'winners', 'display_name_singular' => 'Winner', 'display_name_plural' => 'Winners', 'icon' => 'voyager-folder', 'model_name' => 'App\\Models\\Winner', 'policy_name' => NULL, 'controller' => NULL, 'description' => NULL, 'generate_permissions' => '1', 'server_side' => '1', 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"desc","default_search_key":"user_id","scope":null}', 'created_at' => '2021-09-26 11:39:33', 'updated_at' => '2021-09-26 11:58:23')
-        );
-        
-        DB::table('data_types')->truncate();
-        DB::table('data_types')->insert($data_types);
 
         /* `mazad`.`failed_jobs` */
         $failed_jobs = array();
@@ -186,7 +187,7 @@ class VoyagerDatabaseSeeder extends Seeder
         $menus = array(
             array('id' => '1', 'name' => 'admin', 'created_at' => '2021-09-26 10:36:32', 'updated_at' => '2021-09-26 10:36:32')
         );
-        
+
         DB::table('menus')->truncate();
         DB::table('menus')->insert($menus);
 
@@ -214,7 +215,7 @@ class VoyagerDatabaseSeeder extends Seeder
             array('id' => '22', 'menu_id' => '1', 'title' => 'Addresses', 'url' => '', 'target' => '_self', 'icon_class' => 'voyager-double-down', 'color' => '#000000', 'parent_id' => NULL, 'order' => '4', 'created_at' => '2021-09-26 11:43:32', 'updated_at' => '2021-09-26 11:46:27', 'route' => NULL, 'parameters' => ''),
             array('id' => '23', 'menu_id' => '1', 'title' => 'Mazad', 'url' => '', 'target' => '_self', 'icon_class' => 'voyager-double-down', 'color' => '#000000', 'parent_id' => NULL, 'order' => '6', 'created_at' => '2021-09-26 11:44:22', 'updated_at' => '2021-09-26 11:46:37', 'route' => NULL, 'parameters' => '')
         );
-        
+
         DB::table('menu_items')->truncate();
         DB::table('menu_items')->insert($menu_items);
 
@@ -271,7 +272,7 @@ class VoyagerDatabaseSeeder extends Seeder
             array('id' => '1', 'user_id' => NULL, 'name' => 'Laravel Personal Access Client', 'secret' => 'oebbZa6JLg5MjmtDZ0BCPbXsC41YRjTF1yODAyVg', 'provider' => NULL, 'redirect' => 'http://localhost', 'personal_access_client' => '1', 'password_client' => '0', 'revoked' => '0', 'created_at' => '2021-09-26 10:41:41', 'updated_at' => '2021-09-26 10:41:41'),
             array('id' => '2', 'user_id' => NULL, 'name' => 'Laravel Password Grant Client', 'secret' => 'tVPXZr5JYJlPvqogEIF8hyWcidBJXEgIZ67UZZU5', 'provider' => 'users', 'redirect' => 'http://localhost', 'personal_access_client' => '0', 'password_client' => '1', 'revoked' => '0', 'created_at' => '2021-09-26 10:41:41', 'updated_at' => '2021-09-26 10:41:41')
         );
-        
+
         DB::table('oauth_clients')->truncate();
         DB::table('oauth_clients')->insert($oauth_clients);
 
@@ -279,7 +280,7 @@ class VoyagerDatabaseSeeder extends Seeder
         $oauth_personal_access_clients = array(
             array('id' => '1', 'client_id' => '1', 'created_at' => '2021-09-26 10:41:41', 'updated_at' => '2021-09-26 10:41:41')
         );
-        
+
         DB::table('oauth_personal_access_clients')->truncate();
         DB::table('oauth_personal_access_clients')->insert($oauth_personal_access_clients);
 
@@ -362,7 +363,7 @@ class VoyagerDatabaseSeeder extends Seeder
             array('id' => '69', 'key' => 'add_winners', 'table_name' => 'winners', 'created_at' => '2021-09-26 11:39:33', 'updated_at' => '2021-09-26 11:39:33'),
             array('id' => '70', 'key' => 'delete_winners', 'table_name' => 'winners', 'created_at' => '2021-09-26 11:39:33', 'updated_at' => '2021-09-26 11:39:33')
         );
-        
+
         DB::table('permissions')->truncate();
         DB::table('permissions')->insert($permissions);
 
@@ -439,7 +440,7 @@ class VoyagerDatabaseSeeder extends Seeder
             array('permission_id' => '69', 'role_id' => '1'),
             array('permission_id' => '70', 'role_id' => '1')
         );
-        
+
         DB::table('permission_role')->truncate();
         DB::table('permission_role')->insert($permission_role);
 
@@ -448,7 +449,7 @@ class VoyagerDatabaseSeeder extends Seeder
             array('id' => '1', 'name' => 'admin', 'display_name' => 'Administrator', 'created_at' => '2021-09-26 10:36:32', 'updated_at' => '2021-09-26 10:36:32'),
             array('id' => '2', 'name' => 'user', 'display_name' => 'Normal User', 'created_at' => '2021-09-26 10:36:32', 'updated_at' => '2021-09-26 10:36:32')
         );
-        
+
         DB::table('roles')->truncate();
         DB::table('roles')->insert($roles);
 
@@ -465,7 +466,7 @@ class VoyagerDatabaseSeeder extends Seeder
             array('id' => '9', 'key' => 'admin.icon_image', 'display_name' => 'Admin Icon Image', 'value' => '', 'details' => '', 'type' => 'image', 'order' => '4', 'group' => 'Admin'),
             array('id' => '10', 'key' => 'admin.google_analytics_client_id', 'display_name' => 'Google Analytics Client ID (used for admin dashboard)', 'value' => '', 'details' => '', 'type' => 'text', 'order' => '1', 'group' => 'Admin')
         );
-        
+
         DB::table('settings')->truncate();
         DB::table('settings')->insert($settings);
 
@@ -476,7 +477,7 @@ class VoyagerDatabaseSeeder extends Seeder
         $users = array(
             array('id' => '1', 'role_id' => '1', 'name' => 'Admin', 'email' => 'admin@admin.com', 'avatar' => 'users/default.png', 'email_verified_at' => '2021-09-26 13:59:53', 'password' => '$2y$10$.oQYH1YIq4cmGoINdq8Tq.J2utwblFdSqZdWv0rOkxIdJ8QYCdY6y', 'phone' => NULL, 'type' => 'admin', 'gender' => NULL, 'birth_date' => NULL, 'code' => NULL, 'remember_token' => NULL, 'settings' => NULL, 'created_at' => '2021-09-26 10:37:45', 'updated_at' => '2021-09-26 10:37:45'),
         );
-        
+
         DB::table('users')->truncate();
         DB::table('users')->insert($users);
 
@@ -487,7 +488,7 @@ class VoyagerDatabaseSeeder extends Seeder
         $user_translations = array(
             array('id' => '1', 'name' => 'admin', 'user_id' => '1', 'locale' => 'en')
         );
-        
+
         DB::table('user_translations')->truncate();
         DB::table('user_translations')->insert($user_translations);
 
