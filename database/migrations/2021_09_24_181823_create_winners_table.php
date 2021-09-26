@@ -17,6 +17,7 @@ class CreateWinnersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('mazad_id')->nullable();
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }

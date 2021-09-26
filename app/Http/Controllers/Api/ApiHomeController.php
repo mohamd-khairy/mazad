@@ -51,6 +51,13 @@ class ApiHomeController extends Controller
         return responseSuccess($data);
     }
 
+    public function get_comments($mazad_id)
+    {
+        $data = $this->getBy(Comment::class, ['mazad_id' => $mazad_id], []);
+        return responseSuccess($data);
+    }
+
+
     public function add_mazad(Request $request)
     {
         $data = $this->add(Mazad::class, $request->all() + ['user_id' => auth('api')->user()->id]);
