@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\HasApiTokens;  //add the namespace
 
-class User extends \TCG\Voyager\Models\User 
+class User extends \TCG\Voyager\Models\User
 {
     use HasFactory, Notifiable;
     use HasApiTokens;
@@ -56,5 +56,10 @@ class User extends \TCG\Voyager\Models\User
     public function setBirthDateAttribute($value)
     {
         $this->attributes['birth_date'] = $value ? date('Y-m-d', strtotime($value)) : null;
+    }
+
+    public function setTypeAttribute($value)
+    {
+        $this->attributes['type'] = !is_null($value) ? $value : 'user';
     }
 }
