@@ -11,4 +11,8 @@ class Category extends Model
 
     public $guarded = [];
 
+    public function mazads()
+    {
+        return $this->hasMany(Mazad::class);
+    }
 }
