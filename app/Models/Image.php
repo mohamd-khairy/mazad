@@ -13,7 +13,7 @@ class Image extends Model
 
     public $timestamps = false;
 
-    public function getImageAttribute($value)
+    public function getPhotoAttribute($value)
     {
         return $value ? display_img($value) : null;
     }
