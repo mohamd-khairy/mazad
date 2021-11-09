@@ -19,7 +19,19 @@ class ApiHomeController extends Controller
 
     public function get_public_data()
     {
+
+        $categories = $this->get(Category::class);
+
+        $category_mazad = [];
+        foreach ($categories as $key => $value) {
+            $category_mazad[$key]['id'] = $value->id;
+            $category_mazad[$key]['name'] = $value->name;
+            $category_mazad[$key]['data'] = $this->getBy(Mazad::class, ['category_id' => $value->id], ['image']);
+        }
+
         $data = [];
+        $data['category_mazad'] = $category_mazad;
+        $data['categories'] = $categories;
         $data['mazads'] = $this->get(Mazad::class);
 
         return responseSuccess($data);
@@ -50,6 +62,13 @@ class ApiHomeController extends Controller
         }
         return responseSuccess($data);
     }
+
+    public function get_comments($mazad_id)
+    {
+        $data = $this->getBy(Comment::class, ['mazad_id' => $mazad_id], []);
+        return responseSuccess($data);
+    }
+
 
     public function add_mazad(Request $request)
     {

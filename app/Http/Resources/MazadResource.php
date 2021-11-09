@@ -21,7 +21,7 @@ class MazadResource extends JsonResource
             "price" =>  $this->price ?? null,
             "price_min_plus" =>  $this->price_min_plus ?? null,
             "status" =>  $this->status ? true : false,
-            'images' => $this->images ?? null,
+            'images' => display_img($this->images) ?? null,
             'user' => $this->user ? new UserResource($this->user) : null,
             'category' => $this->category ? new GeneralResource($this->category) : null,
             'comments' => $this->comments ?? null,

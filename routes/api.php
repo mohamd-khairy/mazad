@@ -24,6 +24,7 @@ Route::post('new-password', [\App\Http\Controllers\Api\UserController::class, 'n
 Route::get('get-public-data', [\App\Http\Controllers\Api\ApiHomeController::class, 'get_public_data']);
 Route::get('get-mazads', [\App\Http\Controllers\Api\ApiHomeController::class, 'get_mazads']);
 Route::get('get-categories', [\App\Http\Controllers\Api\ApiHomeController::class, 'get_categories']);
+Route::get('get-comments/{mazad_id}', [\App\Http\Controllers\Api\ApiHomeController::class, 'get_comments']);
 
 Route::group(['middleware' => ['auth:api']], function () {
 

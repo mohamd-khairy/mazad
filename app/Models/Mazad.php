@@ -23,6 +23,11 @@ class Mazad extends Model
 
     public function image()
     {
+        return $this->hasOne(Image::class, 'item_id', 'id')->where('model', 'App\Models\Mazad')->orderBy('id', 'asc');
+    }
+
+    public function images()
+    {
         return $this->hasMany(Image::class, 'item_id', 'id')->where('model', 'App\Models\Mazad');
     }
 

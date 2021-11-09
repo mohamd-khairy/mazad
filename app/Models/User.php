@@ -6,15 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
-use Astrotomic\Translatable\Translatable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\HasApiTokens;  //add the namespace
 
-class User extends Authenticatable implements TranslatableContract
+class User extends \TCG\Voyager\Models\User
 {
     use HasFactory, Notifiable;
-    use Translatable;
     use HasApiTokens;
 
     /**
@@ -23,6 +20,7 @@ class User extends Authenticatable implements TranslatableContract
      * @var array
      */
     protected $fillable = [
+        'name',
         'email',
         'password',
         'type',
@@ -34,8 +32,6 @@ class User extends Authenticatable implements TranslatableContract
         'code',
         'email_verified_at'
     ];
-
-    public $translatedAttributes = ['name'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -57,13 +53,13 @@ class User extends Authenticatable implements TranslatableContract
         'email_verified_at' => 'datetime',
     ];
 
-    public function gettranslatable()
-    {
-        return $this->translatedAttributes;
-    }
-
     public function setBirthDateAttribute($value)
     {
         $this->attributes['birth_date'] = $value ? date('Y-m-d', strtotime($value)) : null;
+    }
+
+    public function setTypeAttribute($value)
+    {
+        $this->attributes['type'] = !is_null($value) ? $value : 'user';
     }
 }

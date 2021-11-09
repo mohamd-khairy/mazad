@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\City;
 use App\Models\DayNumber;
 use App\Models\Diet;
@@ -33,6 +34,17 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'type' => 'admin',
             'gender' => 'male'
+        ]);
+
+        Category::insert([
+            [
+                'name' => 'car',
+                'image' => ''
+            ],
+            [
+                'name' => 'Computer',
+                'image' => ''
+            ],
         ]);
     }
 }

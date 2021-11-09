@@ -12,4 +12,9 @@ class Image extends Model
     public $guarded = [];
 
     public $timestamps = false;
+
+    public function getPhotoAttribute($value)
+    {
+        return $value ? display_img($value) : null;
+    }
 }
