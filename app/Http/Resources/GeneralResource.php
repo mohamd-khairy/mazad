@@ -17,6 +17,7 @@ class GeneralResource extends JsonResource
         return [
             'id' => $this->id ?? null,
             'name' => $this->name ?? null,
+            'image' => $this->image ? display_img($this->image) : null,
         ];
     }
 }
