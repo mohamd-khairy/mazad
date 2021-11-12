@@ -21,6 +21,7 @@ class UserResource extends JsonResource
             "phone" =>  $this->phone ?? null,
             "gender" =>  $this->gender ?? null,
             "birth_date" => $this->birth_date ? date('Y-m-d', strtotime($this->birth_date)) : null,
+            "image" => display_img(null)
         ];
     }
 }
