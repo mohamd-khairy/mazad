@@ -38,4 +38,12 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $exception)
+    {
+        if ($exception instanceof \Illuminate\Auth\AuthenticationException) {
+            return responseFail('unauthorized');
+        }
+        return parent::render($request, $exception);
+    }
 }
