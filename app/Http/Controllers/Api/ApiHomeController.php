@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CommentResource;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\MazadResource;
 use App\Http\Traits\HelperTrait;
@@ -65,8 +66,8 @@ class ApiHomeController extends Controller
 
     public function get_comments($mazad_id)
     {
-        $data = $this->getBy(Comment::class, ['mazad_id' => $mazad_id], []);
-        return responseSuccess($data);
+        $data = $this->getBy(Comment::class, ['mazad_id' => $mazad_id], ['user']);
+        return responseSuccess(CommentResource::collection($data));
     }
 
 
